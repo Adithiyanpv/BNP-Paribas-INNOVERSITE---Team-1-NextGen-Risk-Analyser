@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import MetricGauge from './MetricGauge'; 
 
 const StockEvaluator = () => {
   const [formData, setFormData] = useState({
@@ -31,7 +32,6 @@ const StockEvaluator = () => {
     setIsLoading(true);
     setError('');
     setResults(null);
-
     try {
       const response = await fetch('http://localhost:5000/api/stock/evaluate', {
         method: 'POST',
@@ -41,11 +41,9 @@ const StockEvaluator = () => {
           parameters: { ...formData }
         }),
       });
-
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-
       const data = await response.json();
       setResults(data);
     } catch (err) {
@@ -59,6 +57,7 @@ const StockEvaluator = () => {
   return (
     <div className="evaluator">
       <h2>Stock Evaluator</h2>
+      {/* --- THIS IS THE FULL FORM SECTION --- */}
       <form onSubmit={handleSubmit}>
         <div className="form-grid">
           <input name="stockSymbol" value={formData.stockSymbol} onChange={handleChange} placeholder="Stock Symbol (e.g., AAPL)" />
@@ -80,13 +79,39 @@ const StockEvaluator = () => {
 
       {error && <div className="error">{error}</div>}
       
+      {/* --- VISUAL RESULTS SECTION --- */}
       {results && (
         <div className="results">
           <h3>Analysis for {results.stockSymbol}</h3>
-          <div className="summary">
-            <h4>Summary</h4>
+          <div className="summary-card">
+            <h4>Analyst Summary</h4>
             <p>{results.summary}</p>
           </div>
+          
+          <h4>Key Metrics Visualized</h4>
+          <div className="metrics-visuals">
+            <MetricGauge 
+              label="P/E Ratio" 
+              value={results.parameters.priceEarningsRatio} 
+              good={15} 
+              bad={30} 
+            />
+            <MetricGauge 
+              label="Debt-to-Equity" 
+              value={results.parameters.debtToEquityRatio} 
+              good={1.0} 
+              bad={2.0} 
+            />
+            <MetricGauge 
+              label="Return on Equity" 
+              value={results.parameters.returnOnEquity * 100}
+              unit="%" 
+              good={20} 
+              bad={10} 
+              higherIsBetter={true} 
+            />
+          </div>
+
           <div className="feedback">
             <h4>Detailed Feedback</h4>
             <ul>

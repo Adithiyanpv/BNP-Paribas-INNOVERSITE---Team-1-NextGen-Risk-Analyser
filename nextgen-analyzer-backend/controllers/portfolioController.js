@@ -1,8 +1,7 @@
 // controllers/portfolioController.js
-
 const { analyzePortfolioData } = require('../services/portfolioService');
 
-const getPortfolioAnalysis = (req, res) => {
+const getPortfolioAnalysis = async (req, res) => {
   try {
     const { funds } = req.body;
 
@@ -11,7 +10,10 @@ const getPortfolioAnalysis = (req, res) => {
       return res.status(400).json({ message: 'Request body must contain a non-empty array of funds.' });
     }
 
-    const analysisResult = analyzePortfolioData(funds);
+    // Call the main service function and wait for the result
+    const analysisResult = await analyzePortfolioData(funds);
+    
+    // Send the final report back to the client
     res.status(200).json(analysisResult);
     
   } catch (error) {

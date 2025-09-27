@@ -131,3 +131,95 @@ button:disabled { background-color: #aaa; }
 .add-btn { background-color: #28a745; margin-bottom: 15px; }
 .remove-btn { position: absolute; top: 10px; right: 10px; background-color: #dc3545; border-radius: 4px; padding: 5px 10px; width: auto; }
 .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.summary-card {
+  background-color: #eaf5ff;
+  border-left: 4px solid #007bff;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+.summary-card p {
+  margin: 0;
+}
+.recommendations {
+  margin-top: 20px;
+}
+.recommendations ul {
+  list-style-type: none;
+  padding: 0;
+}
+.recommendations li {
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+.chart-container {
+  max-width: 350px;
+  margin: 20px auto;
+}
+.performance-chart {
+  max-width: 100%;
+}
+.risk-metric {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.risk-indicator {
+  padding: 4px 12px;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+.risk-low {
+  background-color: #28a745; /* Green */
+}
+.risk-moderate {
+  background-color: #ffc107; /* Yellow */
+  color: #333;
+}
+.risk-high, .risk-very-high {
+  background-color: #dc3545; /* Red */
+}
+.metrics-visuals {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+  margin: 30px 0;
+}
+.metric-gauge {
+  width: 100%;
+}
+.gauge-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 0.9em;
+  color: #555;
+}
+.gauge-track {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  background-color: #eee;
+  border-radius: 5px;
+  display: flex;
+}
+.gauge-bar {
+  height: 100%;
+}
+.gauge-bar.good { background-color: #28a745; width: 33.3%; border-radius: 5px 0 0 5px;}
+.gauge-bar.average { background-color: #ffc107; width: 33.4%; }
+.gauge-bar.bad { background-color: #dc3545; width: 33.3%; border-radius: 0 5px 5px 0; }
+.gauge-needle {
+  position: absolute;
+  top: -3px;
+  width: 4px;
+  height: 16px;
+  background-color: #333;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: left 0.5s ease-in-out;
+}
