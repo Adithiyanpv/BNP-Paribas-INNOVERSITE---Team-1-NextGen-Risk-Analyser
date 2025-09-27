@@ -1,0 +1,133 @@
+/* src/index.css */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  margin: 0;
+}
+
+/* Layout & Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  height: 60px;
+}
+.navbar-brand a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #0052cc;
+  text-decoration: none;
+}
+.nav-links a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+}
+.nav-links a:hover {
+  color: #0052cc;
+}
+.main-content {
+  padding: 0;
+}
+
+/* Hero Section */
+.hero {
+  background-color: #0052cc;
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+.hero-buttons .btn {
+  margin: 0 10px;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+.btn-primary {
+  background-color: white;
+  color: #0052cc;
+}
+.btn-primary:hover {
+  background-color: #eef;
+}
+.btn-secondary {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+}
+.btn-secondary:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+/* Tools Section & Cards */
+.tools-section {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #ffffff;
+}
+.tools-section h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+.tool-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.card {
+  background-color: #fff;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  padding: 30px;
+  width: 300px;
+  text-align: left;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.card h3 {
+  margin-top: 0;
+}
+
+/* Existing Styles for Containers/Forms */
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+input, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+button { display: block; width: 100%; padding: 12px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+button:disabled { background-color: #aaa; }
+.results { margin-top: 30px; padding: 20px; background-color: #f8f9fa; border: 1px solid #e9ecef; border-radius: 4px; }
+.error { margin-top: 20px; color: #d9534f; text-align: center; }
+.analyzer-container { margin-top: 40px; border-top: 1px solid #ddd; padding-top: 20px; }
+.fund-card { background: #fdfdfd; border: 1px solid #eee; border-radius: 6px; padding: 15px; margin-bottom: 15px; position: relative; }
+.fund-card textarea { min-height: 60px; margin-top: 10px; }
+.add-btn { background-color: #28a745; margin-bottom: 15px; }
+.remove-btn { position: absolute; top: 10px; right: 10px; background-color: #dc3545; border-radius: 4px; padding: 5px 10px; width: auto; }
+.results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
